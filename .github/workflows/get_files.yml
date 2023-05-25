@@ -86,7 +86,7 @@ jobs:
               mkdir -p "$GITHUB_WORKSPACE"/get_files/$i
           done
           sudo cp -f "$GITHUB_WORKSPACE"/"$device"/product/etc/displayconfig/*.xml "$GITHUB_WORKSPACE"/get_files/product
-          sudo cp -f "$GITHUB_WORKSPACE"/"$device"/product/priv-app/ "$GITHUB_WORKSPACE"/get_files/product/priv-app
+          sudo cp -r "$GITHUB_WORKSPACE"/"$device"/product/priv-app "$GITHUB_WORKSPACE"/get_files/product
           if [[ "${{ env.has_mi_ext }}" == "true" ]]; then
               mkdir -p "$GITHUB_WORKSPACE"/get_files/mi_ext
               mi_ext_build_prop=$(sudo find "$GITHUB_WORKSPACE"/"$device"/mi_ext -name "build.prop")

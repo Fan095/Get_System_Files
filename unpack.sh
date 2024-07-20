@@ -45,8 +45,13 @@ get_overlay() {
   cp -r "$GITHUB_WORKSPACE"/"$device"/product/overlay "$GITHUB_WORKSPACE"/get_files/product
 }
 
+get_priv_app() {
+  mkdir -p "$GITHUB_WORKSPACE"/get_files/product/priv-app/
+  sudo cp "$GITHUB_WORKSPACE"/"$device"/product/priv-app/* "$GITHUB_WORKSPACE"/get_files/product/priv-app
+}
+
 extract_files() {
   cp "$GITHUB_WORKSPACE"/info.txt "$GITHUB_WORKSPACE"/get_files
-  get_prop_files
+  get_priv_app
   get_files_config
 }

@@ -66,9 +66,14 @@ unpack_vendor_boot() {
   cd "$GITHUB_WORKSPACE"
 }
 
+get_product_files() {
+  get_system_files "/product/priv-app"
+}
+
 extract_files() {
   cp "$GITHUB_WORKSPACE"/info.txt "$GITHUB_WORKSPACE"/get_files
-  
+
+  get_product_files
   # get_files_config
   # get_prop_files
 
@@ -80,25 +85,4 @@ extract_files() {
   # get_system_files "/odm/overlay"
   # get_system_files "/product/overlay"
   # get_system_files "/vendor/overlay"
-
-  ### 设置
-  # get_system_files "/system_ext/priv-app/Settings"
-  get_system_files "/system_ext/priv-app/Settings/Settings.apk"
-
-  ### MiuiSystemUI
-  # get_system_files "/system_ext/priv-app/MiuiSystemUI"
-  get_system_files "/system_ext/priv-app/MiuiSystemUI/MiuiSystemUI.apk"
-
-  ### 相机
-  # get_system_files "/product/priv-app/MiuiCamera"
-  get_system_files "/product/priv-app/MiuiCamera/MiuiCamera.apk"
-
-  ### zram.ko
-  get_system_files "/vendor_boot/ramdisk/lib/modules/zram.ko"
-
-  ### zsmalloc.ko
-  get_system_files "/vendor_boot/ramdisk/lib/modules/zsmalloc.ko"
-
-  ### dtb
-  get_system_files "/vendor_boot/dtb"
 }

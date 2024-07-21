@@ -67,7 +67,7 @@ unpack_vendor_boot() {
 }
 
 get_product_files() {
-  get_system_files "/product/priv-app"
+  get_system_files "/product/media"
 }
 
 extract_files() {
